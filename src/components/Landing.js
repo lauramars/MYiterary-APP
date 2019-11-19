@@ -25,14 +25,14 @@ import arrowIcon from '../images/arrowIcon.png'
                 </div>
 
                 <div className="itemLinks">
-               
+                <span>
                   <p>Want to build your own MYtinerary?</p>
                  
-                  <span>Log in
+                  <p>Log in</p>
                   
-                  {/* &nbsp; */}
-                  Create an account</span>
                   
+                  <p>Create an account</p>
+                  </span>
                   
                 </div>
 
