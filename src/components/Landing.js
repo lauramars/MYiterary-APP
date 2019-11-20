@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import arrowIcon from '../images/arrowIcon.png'
+import homeIcon from '../images/homeIcon.png'
 
  class Landing extends Component {
     render() {
         return (
-            <div className="grid-container">
+            <div className="flex-container">
                 
                 <header className="itemHeader">
                     
@@ -37,7 +38,8 @@ import arrowIcon from '../images/arrowIcon.png'
                 </div>
 
                 <div className="itemFooter">
-
+                    <img src={homeIcon} alt="homeLogo"/>
+                    
                 </div>
             </div>
         )

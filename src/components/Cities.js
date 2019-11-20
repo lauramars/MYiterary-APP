@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import homeIcon from '../images/homeIcon.png'
 
 
 
@@ -35,31 +37,45 @@ class Cities extends Component {
 
     filterCities = () => {
         const { cities, cityFilter } = this.state;
-        return cities.filter((city) =>{
-            return city.name.toLowerCase().indexOf(cityFilter.toLowerCase())!== -1 
-            },
-        ); 
+        return cities.filter((city) => {
+            return city.name.toLowerCase().indexOf(cityFilter.toLowerCase()) !== -1
+        },
+        );
     }
 
     render() {
         return (
-            <div>
-                <div className="Filter">
+            <div className="flex-container">
+                <header >
+                 <div></div>
+                </header>
+
+                <div className="filter">
                     <label htmlFor="filter">Filter by City: </label>
-                    <input type="text" id="filter" 
+                    <input type="text" id="filter"
                         value={this.state.cityFilter}
-                        onChange={this.handleChange.bind(this)}/>
-      
+                        onChange={this.handleChange.bind(this)} />
+
                 </div>
-                <ul className="city-list">
-                    {this.filterCities().map((city) => {
-                        return (
-                            <li className="city" key={city._id}>{city.name}</li>
-                        )
+
+                <div className="city-list">
+                    <ul >
+                        {this.filterCities().map((city) => {
+                            return (
+                                <li className="city" key={city._id}>{city.name}</li>
+                            )
                         }
-                    )}
-                </ul>
-            </div>    
+                        )}
+                    </ul>
+                </div>
+
+                <div className="itemFooter">
+                    <Link to="/">
+                        <img src={homeIcon} alt="homeLogo" />
+                    </Link>
+                </div>
+
+            </div>
         )
     }
 }
