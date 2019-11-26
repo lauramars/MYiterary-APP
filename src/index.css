@@ -13,7 +13,7 @@ img{
   flex-flow: column wrap;
   justify-content: center;
   max-width: 100%;
-  height: 100%;
+  height: 95vh;
 }
 
 
@@ -26,7 +26,7 @@ img{
   background-image: url("../src/images/MYtineraryLogo.png");
   background-repeat: no-repeat;
   background-size: contain;
-  height: 346px;
+  height: 144px;
 }
 
 

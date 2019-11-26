@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+// import MYtinerayLogo from '../images/MYtineraryLogo.png'
 import arrowIcon from '../images/arrowIcon.png'
 import homeIcon from '../images/homeIcon.png'
 
@@ -8,9 +9,9 @@ import homeIcon from '../images/homeIcon.png'
         return (
             <div className="flex-container">
                 
-                <header className="itemHeader">
-                    
-                </header>
+                <div className="itemHeader">
+                    {/* <img src={MYtinerayLogo} alt="headerImage"/> */}
+                </div>
 
                 <div className="itemInfo">
                    <p>Find your perfect trip, designed by insiders 

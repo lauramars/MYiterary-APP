@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
-import homeIcon from '../images/homeIcon.png'
-
+import homeIcon from '../images/homeIcon.png';
+import {fetchCitiesList} from '../store/actions/cityActions';
 
 
 class Cities extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
             cities: [],
             cityFilter: "",
+            fetchCitiesList: []
         }
     }
 
     componentDidMount() {
-        this.fetchCities()
-            .then((cities) => this.setState({ cities }))
+        // console.log(this)
+        this.props.fetchCitiesList()
     }
 
     handleChange = (e) => {
@@ -25,18 +27,19 @@ class Cities extends Component {
         })
     }
 
-    fetchCities = async () => {
-        var url = "https://mern-ubiqum-v2.herokuapp.com/cities/all"
-        return await fetch(url, {
-            method: "GET",
-        })
-            .then(response => response.json())
-            .then(data => data)
-            .catch(error => console.log(error))
-    }
+    // fetchCities = async () => {
+    //     var url = "https://mern-ubiqum-v2.herokuapp.com/cities/all"
+    //     return await fetch(url, {
+    //         method: "GET",
+    //     })
+    //         .then(response => response.json())
+    //         .then(data => data)
+    //         .catch(error => console.log(error))
+    // }
 
     filterCities = () => {
-        const { cities, cityFilter } = this.state;
+        const { cities } = this.props;
+        const { cityFilter } = this.state;
         return cities.filter((city) => {
             return city.name.toLowerCase().indexOf(cityFilter.toLowerCase()) !== -1
         },
@@ -44,7 +47,12 @@ class Cities extends Component {
     }
 
     render() {
+        const { loading } = this.props;
+
+        console.log(loading)
+        if (!loading)
         return (
+            
             <div className="flex-container">
                 <header >
                  <div></div>
@@ -58,16 +66,34 @@ class Cities extends Component {
 
                 </div>
 
+        
+
                 <div className="city-list">
+
+                    {/* <ul>
+                        {props.fetchCitiesList().map((props.city)=> {
+                        return (
+                            <li className='city' key={ this.props.city_id}>
+                            { this.props.city.name}
+                            </li>
+                        )})}
+
+                    </ul> */}
+                    
+                    
                     <ul >
                         {this.filterCities().map((city) => {
                             return (
-                                <li className="city" key={city._id}>{city.name}</li>
+                                <li className="city" key={city._id}>
+                                    {city.name}
+                                </li>
+                                
                             )
                         }
                         )}
                     </ul>
-                </div>
+                    </div>
+                
 
                 <div className="itemFooter">
                     <Link to="/">
@@ -77,8 +103,29 @@ class Cities extends Component {
 
             </div>
         )
+        else 
+        return (
+            <div>Loading ... </div>
+        )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        // initialState: state.initialState
+        cities: state.cities.cities,
+        loading: state.cities.loading
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchCitiesList: () => dispatch(fetchCitiesList())
     }
 }
 
 
-export default Cities
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+    ) (Cities)
