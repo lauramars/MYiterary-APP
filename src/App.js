@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Landing from './components/Landing';
 import Cities from './components/Cities';
+import Itineraries from './components/Itineraries';
 
  class App extends Component {
   render() {
@@ -12,6 +13,7 @@ import Cities from './components/Cities';
         <Switch>
             <Route exact path='/' component={Landing} />
             <Route path='/cities' component={Cities}/>
+            <Route path='/itineraries/:city' component={Itineraries}/>
         </Switch>
       </div>  
     

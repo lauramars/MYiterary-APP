@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-// import MYtinerayLogo from '../images/MYtineraryLogo.png'
+import MYtinerayLogo from '../images/MYtineraryLogo.png'
 import arrowIcon from '../images/arrowIcon.png'
 import homeIcon from '../images/homeIcon.png'
 
@@ -10,7 +10,7 @@ import homeIcon from '../images/homeIcon.png'
             <div className="flex-container">
                 
                 <div className="itemHeader">
-                    {/* <img src={MYtinerayLogo} alt="headerImage"/> */}
+                    <img src={MYtinerayLogo} alt="headerImage"/>
                 </div>
 
                 <div className="itemInfo">

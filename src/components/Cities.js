@@ -17,7 +17,6 @@ class Cities extends Component {
     }
 
     componentDidMount() {
-        // console.log(this)
         this.props.fetchCitiesList()
     }
 
@@ -47,9 +46,9 @@ class Cities extends Component {
     }
 
     render() {
+        // console.log(this.props)
         const { loading } = this.props;
-
-        console.log(loading)
+         
         if (!loading)
         return (
             
@@ -63,36 +62,25 @@ class Cities extends Component {
                     <input type="text" id="filter"
                         value={this.state.cityFilter}
                         onChange={this.handleChange.bind(this)} />
-
                 </div>
-
-        
-
+                
                 <div className="city-list">
-
-                    {/* <ul>
-                        {props.fetchCitiesList().map((props.city)=> {
-                        return (
-                            <li className='city' key={ this.props.city_id}>
-                            { this.props.city.name}
-                            </li>
-                        )})}
-
-                    </ul> */}
-                    
-                    
-                    <ul >
+                   <ul>
                         {this.filterCities().map((city) => {
                             return (
                                 <li className="city" key={city._id}>
-                                    {city.name}
-                                </li>
-                                
+                                    <Link to={`/itineraries/${city.name}`}>
+                                    {city.name} - {city.country}
+                                    <img src={city.img} alt="cityPhoto"/>
+                                    
+                                  </Link>
+                                  
+                                </li>   
                             )
                         }
                         )}
                     </ul>
-                    </div>
+                </div>
                 
 
                 <div className="itemFooter">
