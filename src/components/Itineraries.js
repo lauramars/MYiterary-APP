@@ -26,7 +26,10 @@ class Itineraries extends Component {
     render() {
 
         const { itineraries } = this.props;
+        
         console.log(itineraries)
+       
+
         const itinerariesList = itineraries.map(itinerary => {
             return (
                 <div className="itineraryItem" key={itinerary._id} >
@@ -68,7 +71,7 @@ class Itineraries extends Component {
                         {itinerariesList}
                        
                        <Link to="/cities">
-                        <p><center>Chose another city...</center></p>
+                        <center>Chose another city...</center>
                         </Link>
                     </div>
 

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import MYtinerayLogo from '../images/MYtineraryLogo.png'
 import arrowIcon from '../images/arrowIcon.png'
 import homeIcon from '../images/homeIcon.png'
+// import CreateAccount from '../components/CreateAccount'
 
  class Landing extends Component {
     render() {
@@ -32,8 +33,10 @@ import homeIcon from '../images/homeIcon.png'
                  
                   <p>Log in</p>
                   
-                  
+                  <Link to ="/newAccount">
                   <p>Create an account</p>
+                  </Link>
+                  {/* <CreateAccount/> */}
                   </span>
                   
                 </div>
