@@ -10,7 +10,7 @@ import homeIcon from '../images/homeIcon.png';
     constructor (props) {
         super (props);
         this.state = {
-            username:'',
+            name:'',
             password:'',
             email:'',
             firstName:'',
@@ -24,20 +24,16 @@ import homeIcon from '../images/homeIcon.png';
         this.handleInputChange = this.handleInputChange.bind(this);
     }
  
-   componentDidMount(){
-       this.props.createAccount()
-   }
-
-    handleChange = (e) => {
+    handleChange = (key,value) => {
         this.setState ({
-            value: e.target.value,
-            name: e.target.name
+                key: value
             });
     }
 
     handleSubmit = (e) => {
-        alert('You are creating a new account' + this.state.value);
+        // alert('You are creating a new account' + this.state.value);
         e.preventDefault();
+        this.props.createAccount(this.state.name,this.state.password,this.state.email)
     }
 
     handleInputChange = (e) => {
@@ -63,17 +59,17 @@ import homeIcon from '../images/homeIcon.png';
                     <div className='photo'>
                         <label>
                            <center> 
-                            <input className='photoUser' name='photo' type='url' value={this.state.value} placeholder='Add Photo'/>
+                            <input className='photoUser' name='photo' type='url' value={this.state.value} onChange={(ev) => this.setState({'photo': ev.target.value})} placeholder='Add Photo'/>
                             </center>
                         
                         </label>
                     </div>
                     
-                    <div className='userName'>
+                    <div className='name'>
                     <label>
                         Username:
-                        <input name='username'  type='text' value={this.state.value} />
-                        {/* onChange={this.handleChange} */}
+                        <input name='name'  type='text' value={this.state.name} onChange={(ev) => this.setState({'name': ev.target.value})}/>
+                        
                         
                     </label>
                     </div>
@@ -81,14 +77,14 @@ import homeIcon from '../images/homeIcon.png';
                     <div className='password'>
                     <label>
                         Password:
-                        <input name='password' type='password' value={this.state.value}/>
+                        <input name='password' type='password' value={this.state.password} onChange={(ev) => this.setState({'password': ev.target.value})}/>
                     </label>
                     </div>
 
                     <div className='email'>
                     <label>
                         Email:
-                        <input name='email' type='email' value={this.state.value} />
+                        <input name='email' type='email' value={this.state.email} onChange={(ev) => this.setState({'email': ev.target.value})}/>
                     </label>
                     </div>
 
@@ -109,7 +105,7 @@ import homeIcon from '../images/homeIcon.png';
                     <div className='country'>
                     <label>
                         Country:
-                        <select name='country' value={this.state.value}>
+                        <select name='country' value={this.state.value} onChange={this.handleChange.country}>
                         <option value="" selected disabled hidden>Choose...</option>
                             <option value='England'>England</option>
                             <option value='France'>France</option>
@@ -130,7 +126,7 @@ import homeIcon from '../images/homeIcon.png';
                         </label>
                         </div>
 
-                        <button id='btn' type="submit" value="submit"> OK </button>
+                        <button id='btn' type="submit" value="submit" > OK </button>
                 </form> 
 
                 <div className="itemFooter">
@@ -154,7 +150,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createAccount: () => dispatch(createAccount())
+        createAccount: (name,password,email) => dispatch(createAccount(name,password,email))
     }
 }
 

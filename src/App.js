@@ -4,6 +4,7 @@ import Landing from './components/Landing';
 import Cities from './components/Cities';
 import Itineraries from './components/Itineraries';
 import NewAccount from './components/NewAccount';
+import Login from './components/Login';
 
  class App extends Component {
   render() {
@@ -16,6 +17,7 @@ import NewAccount from './components/NewAccount';
             <Route path='/cities' component={Cities}/>
             <Route path='/itineraries/:city' component={Itineraries}/>
             <Route path='/newAccount' component={NewAccount}/>
+            <Route path='/login' component={Login}/>
         </Switch>
       </div>  
     

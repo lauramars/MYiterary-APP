@@ -26,26 +26,33 @@ export const createAccountFailure = (error) => {
 }
 
 
-export const createAccount = () => {
+
+export const createAccount = (name, password, email) => {
     return function (dispatch) {
 
-        dispatch (createAccountRequest())
-        axios.post('https://mern-ubiqum-v2.herokuapp.com/users/register', {
-            username:'',
-            password:'',
-            email:'',
-            firstName: '',
-            lastName: '',
-            country:''
-          })
-
-          .then( response =>  {
-              const newAccount = response.data
-            dispatch(createAccountSuccess(newAccount));
-          })
-          .catch(error => {
-            dispatch(createAccountFailure(error.message));
-          });
+        console.log(email,password,name)
+            dispatch (createAccountRequest())
+            fetch("https://mern-ubiqum-v2.herokuapp.com/users/register/",{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `name=${name}&password=${password}&email=${email}`
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(err =>  console.log(err))
+        //     axios.post(``, {
+        //         'name': name,
+        //         'password':password,
+        //         'email':email
+        //     }).then( response =>  {
+        //       const newAccount = response.data
+        //     dispatch(createAccountSuccess(newAccount));
+        //   })
+        //   .catch(error => {
+        //     dispatch(createAccountFailure(error.message));
+        //   });
     }
 }
 

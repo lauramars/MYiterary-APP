@@ -31,12 +31,13 @@ import homeIcon from '../images/homeIcon.png'
                 <span>
                   <p>Want to build your own MYtinerary?</p>
                  
-                  <p>Log in</p>
+                  <Link to ="/login">
+                  <p>Log In</p>
+                  </Link>
                   
                   <Link to ="/newAccount">
                   <p>Create an account</p>
                   </Link>
-                  {/* <CreateAccount/> */}
                   </span>
                   
                 </div>
