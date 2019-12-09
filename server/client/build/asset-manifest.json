@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a915bf15.chunk.css",
+    "main.js": "/static/js/main.a214a0e6.chunk.js",
+    "main.js.map": "/static/js/main.a214a0e6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b240f91f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b240f91f.js.map",
+    "static/js/2.5a3b3f45.chunk.js": "/static/js/2.5a3b3f45.chunk.js",
+    "static/js/2.5a3b3f45.chunk.js.map": "/static/js/2.5a3b3f45.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d52939b8c69f5e826d2d3fae32543d2e.js": "/precache-manifest.d52939b8c69f5e826d2d3fae32543d2e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.a915bf15.chunk.css.map": "/static/css/main.a915bf15.chunk.css.map",
+    "static/media/MYtineraryLogo.png": "/static/media/MYtineraryLogo.a227b9b3.png",
+    "static/media/arrowIcon.png": "/static/media/arrowIcon.16fd0ef3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b240f91f.js",
+    "static/js/2.5a3b3f45.chunk.js",
+    "static/css/main.a915bf15.chunk.css",
+    "static/js/main.a214a0e6.chunk.js"
+  ]
+}

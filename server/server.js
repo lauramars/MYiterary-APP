@@ -9,13 +9,22 @@ app.listen(port, () => {
   console.log("Server is running on " + port + "port");
 });
 
+const db = require('./keys').mongoURI;
 
+const mongoose = require ("mongoose");
+
+mongoose.connect(db, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+   .then(()=> console.log('Connection to Mongo DB estabilished'))
+   .catch(err => console.log(err));
   
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
+app.use('/cities', require('./routes/cities'))
     
+
+
 // MongoClient.connect('mongodb+srv://lauramars85:MYtinerary@mytinerary-qtdlq.mongodb.net/test?retryWrites=true&w=majority', (err, database) => {
 //       // ... start the server
 //       var dbase = db.db("crud");

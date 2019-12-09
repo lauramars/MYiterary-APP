@@ -1,4 +1,4 @@
-const axios = require('axios')
+// const axios = require('axios')
 
 
 
@@ -33,17 +33,49 @@ export const fetchCitiesFailure = (error)=> {
 
 
 export const fetchCitiesList = () => {
-    return function(dispatch) {
+        return function(dispatch) {
+    
+            dispatch(fetchCitiesRequest())
+            return fetch('/cities/all')
+            .then(
+                response =>response.json(),
+                error=> console.log("An error occured", error)
+            )
+            .then(json =>dispatch(fetchCitiesSuccess(json)))
+        }
         
-        dispatch(fetchCitiesRequest())
-        axios.get('https://mern-ubiqum-v2.herokuapp.com/cities/all')
-        .then (response => {
-            const cities = response.data
-            dispatch(fetchCitiesSuccess(cities))
-        })
-
-        .catch (error => {
-            dispatch(fetchCitiesFailure(error.message))
-        })
     }
-}
+
+
+// export const fetchCitiesList = () => {
+//     return function(dispatch) {
+
+//         dispatch(fetchCitiesRequest())
+//         return fetch('http://localhost:5000/cities/all')
+//         .then (response => {
+//             const cities = response.data
+//             console.log(this.props.cities)
+//             dispatch(fetchCitiesSuccess(cities))
+//          })
+//         .catch(error => {
+//             dispatch(fetchCitiesFailure(error.message))
+//         })
+// }
+// }
+
+// export const fetchCitiesList = () => {
+//     return function(dispatch) {
+        
+//         dispatch(fetchCitiesRequest())
+//         axios.get('http://localhost:5000/cities/all')
+//         // ('https://mern-ubiqum-v2.herokuapp.com/cities/all')
+//         .then (response => {
+//             const cities = response.data
+//             dispatch(fetchCitiesSuccess(cities))
+//         })
+
+//         .catch (error => {
+//             dispatch(fetchCitiesFailure(error.message))
+//         })
+//     }
+// }

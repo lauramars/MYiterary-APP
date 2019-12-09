@@ -12,7 +12,7 @@ class Cities extends Component {
         this.state = { 
             cities: [],
             cityFilter: "",
-            fetchCitiesList: []
+            fetchCitiesList: [],
         }
     }
 
