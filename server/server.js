@@ -21,7 +21,8 @@ mongoose.connect(db, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTop
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-app.use('/cities', require('./routes/cities'))
+app.use('/cities', require('./routes/cities'));
+app.use('/itineraries', require('./routes/itineraries'))
     
 
 

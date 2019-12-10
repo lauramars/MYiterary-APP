@@ -26,11 +26,27 @@ export const fetchItinerariesFailure = (error) => {
 }
 
 
+// export const fetchItinerariesList = (city) => {
+//     return function (dispatch) {
+
+//         dispatch(fetchItinerariesRequest())
+//         return fetch (`/itineraries/${city}`)
+//         .then (
+//             response => response.json(),
+//             console.log('Hey'),
+//             error => console.log("An error occured", error)
+//         )
+//         .then (json=> dispatch(fetchItinerariesSuccess(json),
+//         console.log('hey again')))
+        
+//     }
+// }
+
 export const fetchItinerariesList = (city) => {
     return function (dispatch) {
         
         dispatch (fetchItinerariesRequest())
-        axios.get (`https://mern-ubiqum-v2.herokuapp.com/itineraries/${city}`)
+        axios.get (`/itineraries/${city}`)
         .then (response => {
             const itineraries = response.data
             dispatch(fetchItinerariesSuccess(itineraries))
@@ -39,5 +55,7 @@ export const fetchItinerariesList = (city) => {
         .catch (error => {
             dispatch(fetchItinerariesFailure(error.message))
         })
+        console.log('Hey')
     }
+    
 }

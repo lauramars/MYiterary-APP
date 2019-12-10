@@ -50,6 +50,9 @@ class Itineraries extends Component {
                         <br></br>
                         <p>{itinerary.price} </p>
                     </div>
+                    <div className="hashtag">
+                        <p>{itinerary.hashtag}</p>
+                    </div>
 
                     <div className="viewAll">
                         <p>View All</p>
@@ -66,7 +69,7 @@ class Itineraries extends Component {
                 <div className="flex-container">
 
                     <div className="itineraries-list">
-                        <h2>City:{this.city}</h2>
+                        <h2>City:</h2>
                         <h3> Available MYtineraries:</h3>
                         {itinerariesList}
                        
