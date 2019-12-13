@@ -25,6 +25,14 @@ city:{
  duration: {
      type: String,
      required: true
+ },
+
+ hashtag: {
+     type: String
+ },
+
+ activities:{
+    type: Array
  }
 
 })

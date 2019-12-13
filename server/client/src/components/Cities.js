@@ -10,9 +10,12 @@ class Cities extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            cities: [],
+            // cities: [],
+            // fetchCitiesList: [],
+            // Once I created the backend i don't need the state of them anymore
+            // because I'm taking info from my BE. I do need the cityFilter state 
+            // because it's a function created inside this component
             cityFilter: "",
-            fetchCitiesList: [],
         }
     }
 

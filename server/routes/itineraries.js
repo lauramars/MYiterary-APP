@@ -15,10 +15,4 @@ router.get('/:name',
 			.catch(err => console.log(err));
 });
 
-// router.get('/', (req,res) =>{
-//     itineraryModel.find()
-//     .then(docs => res.send(docs))
-// })
-
-
 module.exports = router

@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use('/cities', require('./routes/cities'));
 app.use('/itineraries', require('./routes/itineraries'))
+// app.use('/activities', require('./routes/activities'))
     
 
 
